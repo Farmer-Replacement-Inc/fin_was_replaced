@@ -15,10 +15,15 @@ def pumpkin_square():
 	if not get_ground_type() == Grounds.Soil:
 		till()
 	plant(Entities.Pumpkin)
-	while not can_harvest() and get_entity_type() == Entities.Pumpkin:
-		pass
-	if get_entity_type() == Entities.Dead_Pumpkin:
-		pumpkin_square()
+	#while not can_harvest() and get_entity_type() == Entities.Pumpkin:
+	#	pass
+	#if get_entity_type() == Entities.Dead_Pumpkin:
+	#	pumpkin_square()
+
+def sunflower_square():
+	if not get_ground_type() == Grounds.Soil:
+		till()
+	plant(Entities.Sunflower)
 	
 
 def even_row():

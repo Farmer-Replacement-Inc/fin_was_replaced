@@ -1,15 +1,18 @@
 from harvest import harvest_square
 from irrigation import water_square
-from plant import carrot_square, wood_square, pumpkin_square
+from plant import carrot_square, wood_square, pumpkin_square, sunflower_square
 
 def replace_farmer():
 	while True:
 		size = get_world_size() - 1
-		pumpkin = [0,1,2,3,4,5]
-		carrot = [6]
-		wood = [7]
+		sunflower = [0]
+		pumpkin = [1,2,3,4,5]
+		carrot = [6,7]
+		wood = [8,9]
 		harvest_square()
 		## determine where you are
+		if get_pos_x() in sunflower:
+			sunflower_square()
 		if get_pos_x() in pumpkin:
 			pumpkin_square()
 		if get_pos_x() in carrot:
@@ -24,7 +27,8 @@ def replace_farmer():
 			move(East)
 		move(North)
 
-def move_to_square(new_x=0, new_y=0):
+def move_to_square(pos = (0, 0)):
+	new_x, new_y = pos
 	x = new_x - get_pos_x() 
 	y = new_y - get_pos_y()
 	move_x(x)
